@@ -63,7 +63,7 @@ public class handler extends AppCompatActivity {
             // повторяем через каждые 200 миллисекунд
             mHandler.postDelayed(this, 200);
             try {
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
