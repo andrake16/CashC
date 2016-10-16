@@ -2,4 +2,12 @@
     <string name="app_name">CashC</string>
     <string name="start">Start</string>
     <string name="test">Test</string>
+
+    <!-- -->
+    <string name="product">Product</string>
+    <string name="price">Price</string>
+    <string name="amount">Amout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
