@@ -17,16 +17,15 @@
         style="@style/nd_addProduct">
 
         <TextView
+            style="@style/nd_labelForEditTextDefault"
             android:text="@string/product"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:layout_weight="1"/>
+            android:id="@+id/textView2"/>
 
         <EditText
+            android:hint="@string/product_name_hint"
             style="@style/nd_editTextDefault"
-            android:text="Product Name"
-            android:id="@+id/editText2"/>
+            android:id="@+id/editText_Product"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -34,17 +33,15 @@
         style="@style/nd_addProduct">
 
         <TextView
+            style="@style/nd_labelForEditTextDefault"
             android:text="@string/amount"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            android:layout_weight="1" />
+            android:id="@+id/textView3"/>
 
         <EditText
             style="@style/nd_editTextDefault"
-            android:text="Amount of product"
+            android:hint="@string/amount_of_product_hint"
             android:inputType="numberDecimal"
-            android:id="@+id/editText4"/>
+            android:id="@+id/editTextAmount"/>
 
     </LinearLayout>
 
@@ -53,17 +50,25 @@
         android:orientation="horizontal">
 
         <TextView
+            style="@style/nd_labelForEditTextDefault"
             android:text="@string/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView4"
-            android:layout_weight="1" />
+            android:id="@+id/textView4"/>
 
         <EditText
             style="@style/nd_editTextDefault"
             android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText3"
-            android:layout_weight="1" />
+            android:id="@+id/editTextPrice"
+            android:hint="@string/price_hint"
+            />
     </LinearLayout>
+
+    <Button
+        android:text="@string/add_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_add_product"
+        android:layout_gravity="right"
+        android:layout_marginTop="5dp"/>
+
+
 </LinearLayout>
