@@ -1,11 +1,15 @@
 package com.nd.cashc;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import Database.*;
+
+import com.nd.cashc.DataBase.CC_DatabaseHelper;
+import com.nd.cashc.DataBase.Entities.Purchases;
 
 public class addProductActivity extends AppCompatActivity {
 
@@ -26,7 +30,10 @@ public class addProductActivity extends AppCompatActivity {
     }
 
     private void onAddRecord(){
-        com.nd.cashc.Database.CursorSystem.CC_DatabaseHelper
+        SQLiteOpenHelper dbHelper = new CC_DatabaseHelper(this.getApplicationContext());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.insert(Purchases.tables.TABLE_NAME_PURCHASES,Purchases.tables.)
+
     }
 
     private class ViewHolder {
