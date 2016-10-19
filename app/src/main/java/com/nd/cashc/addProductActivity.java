@@ -1,7 +1,9 @@
 package com.nd.cashc;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.renderscript.Sampler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 
 import com.nd.cashc.DataBase.CC_DatabaseHelper;
 import com.nd.cashc.DataBase.Entities.Purchases;
+
 
 public class addProductActivity extends AppCompatActivity {
 
@@ -32,7 +35,15 @@ public class addProductActivity extends AppCompatActivity {
     private void onAddRecord(){
         SQLiteOpenHelper dbHelper = new CC_DatabaseHelper(this.getApplicationContext());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.insert(Purchases.tables.TABLE_NAME_PURCHASES,Purchases.tables.)
+
+        ContentValues values = new ContentValues();
+
+        values.put(Purchases.tables.PRODUCT, viewHolder.productName.getText().toString());
+        values.put(Purchases.tables.AMOUNT, viewHolder.amount.getText().toString());
+        values.put(Purchases.tables.PRICE,viewHolder.price.getText().toString());
+        db.insert(Purchases.tables.TABLE_NAME_PURCHASES,Purchases.tables.COLUMN_NAME_NULLABLE,values);
+
+        //finish();
 
     }
 
