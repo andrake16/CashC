@@ -1,4 +1,4 @@
-package com.nd.cashc.DataBase.Entities;
+package com.nd.cashc.DataBase.DBEntities;
 
 import android.provider.BaseColumns;
 
@@ -21,7 +21,7 @@ public final class Purchases {
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 PRODUCT + " TEXT, " +
                 AMOUNT + " INTEGER, " +
-                PRICE + " REAL, " +
+                PRICE + " REAL" +
                 ");";
     }
 }

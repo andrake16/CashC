@@ -24,7 +24,7 @@
         <EditText
             android:hint="@string/product_name_hint"
             style="@style/nd_editTextDefault"
-            android:id="@+id/editText_Product"
+            android:id="@+id/addProd_editText_Product"
             />
     </LinearLayout>
 
@@ -41,7 +41,7 @@
             style="@style/nd_editTextDefault"
             android:hint="@string/amount_of_product_hint"
             android:inputType="numberDecimal"
-            android:id="@+id/editTextAmount"/>
+            android:id="@+id/addProd_editText_Amount"/>
 
     </LinearLayout>
 
@@ -57,7 +57,7 @@
         <EditText
             style="@style/nd_editTextDefault"
             android:inputType="number"
-            android:id="@+id/editTextPrice"
+            android:id="@+id/addProd_editText_Price"
             android:hint="@string/price_hint"
             />
     </LinearLayout>

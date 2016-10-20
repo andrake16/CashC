@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.nd.cashc.DataBase.Entities.Purchases;
+import com.nd.cashc.DataBase.DBEntities.Purchases;
 
 /**
  * Created by Andrew on 15.10.2016.
