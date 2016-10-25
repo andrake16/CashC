@@ -25,11 +25,19 @@ public class DBActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        viewHolder.btnViewRecords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),ViewPurchasesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private class ViewHolder {
         Button btnAddRecord = (Button) findViewById(R.id.buttonAddRecord);
         Button createDB = (Button) findViewById(R.id.buttonCreateDB);
-        Button viewRecords = (Button) findViewById(R.id.buttonViewRecords);
+        Button btnViewRecords = (Button) findViewById(R.id.buttonViewRecords);
     }
 }

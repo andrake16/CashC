@@ -12,6 +12,9 @@ import com.nd.cashc.DataBase.DBEntities.Purchases;
 
 public class CC_DatabaseHelper extends SQLiteOpenHelper{
 
+    private static SQLiteDatabase writableDBInstance;
+    private static SQLiteDatabase readableDBInstance;
+
     private static final String DATABASE_NAME = "CashC_Database";
     private static final int DATABASE_VERSION = 1;
 
@@ -27,6 +30,20 @@ public class CC_DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public SQLiteDatabase getWritableDBInstance() {
+        if(writableDBInstance != null) {
+            return writableDBInstance;
+        }
+        return getWritableDatabase();
+    }
+
+    public SQLiteDatabase getReadableDBInstance() {
+        if(readableDBInstance != null) {
+            return readableDBInstance;
+        }
+        return this.getReadableDatabase();
     }
 
 }
