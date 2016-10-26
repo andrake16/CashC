@@ -50,13 +50,22 @@ public class ViewPurchasesActivity extends AppCompatActivity {
                 new int[] {R.id.purchaseName});
         */
 
+        List<HashMap<String,Object>> allPurchases = getAllPurchases();
+
+        /*
         SimpleAdapter adapter = new SimpleAdapter(this,items,
+                R.layout.item_of_purchases_list,
+                new String[] {Purchases.tables._ID, Purchases.tables.PRODUCT, Purchases.tables.AMOUNT, Purchases.tables.PRICE},
+                new int[] {R.id.purchase_id,R.id.purchase_name,R.id.purchase_amount,R.id.purchase_price});
+        */
+
+        SimpleAdapter adapter = new SimpleAdapter(this,allPurchases,
                 R.layout.item_of_purchases_list,
                 new String[] {Purchases.tables._ID, Purchases.tables.PRODUCT, Purchases.tables.AMOUNT, Purchases.tables.PRICE},
                 new int[] {R.id.purchase_id,R.id.purchase_name,R.id.purchase_amount,R.id.purchase_price});
 
         viewHolder.listViewPurchases.setAdapter(adapter);
-        getAllPurchases();
+
 
 
     }
@@ -67,27 +76,30 @@ public class ViewPurchasesActivity extends AppCompatActivity {
     }
 
 
-    public List<HashMap<String,Purchase>> getAllPurchases() {
+    public List<HashMap<String,Object>> getAllPurchases() {
         String SQL_getAllPurchases = "SELECT * FROM " + Purchases.tables.TABLE_NAME_PURCHASES;
         //SQLiteDatabase db = new CC_DatabaseHelper(getApplicationContext()).getReadableDatabase();
         SQLiteDatabase db = App.getReadableDB();
         Cursor cursor = db.query(Purchases.tables.TABLE_NAME_PURCHASES,null,null,null,null,null,null);
 
 
-        List<HashMap<String,Purchase>> purchases = new ArrayList<HashMap<String, Purchase>>();
+        List<HashMap<String,Object>> purchases = new ArrayList<HashMap<String, Object>>();
         cursor.moveToFirst();
-        HashMap map = new HashMap<String,Purchase>();
-        for(int recNum = 0; recNum< cursor.getCount(); recNum++)
-            for(int columnNum = 0; columnNum< cursor.getColumnCount(); columnNum++)
-                if(columnNum == 0)
-                    purchase.setId( cursor.getInt(columnNum) );
-                else if(columnNum == 1)
-                    purchase.setName(cursor.getString(columnNum));
-                else if(columnNum == 2)
-                    purchase.setAmount(cursor.getInt(columnNum));
-                else if(columnNum == 3)
-                    purchase.setPrice(cursor.getFloat(columnNum));
-            purchases.add(purchase);
+        HashMap<String,Object> map = new HashMap<String,Object>();
+        for(int recNum = 0; recNum< cursor.getCount(); recNum++) {
+                for(int columnNum = 0; columnNum< cursor.getColumnCount(); columnNum++)
+                    if(columnNum == 0)
+                        map.put(Purchases.tables._ID,cursor.getInt(columnNum));
+                    else if(columnNum == 1)
+                        map.put(Purchases.tables.PRODUCT,cursor.getString(columnNum));
+                    else if(columnNum == 2)
+                        map.put(Purchases.tables.AMOUNT,cursor.getInt(columnNum));
+                    else if(columnNum == 3)
+                        map.put(Purchases.tables.PRICE,cursor.getFloat(columnNum));
+                purchases.add(map);
+                map = new HashMap<String,Object>();
+                cursor.moveToNext();
+        }
 
         return purchases;
 
