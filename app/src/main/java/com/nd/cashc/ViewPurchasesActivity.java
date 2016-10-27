@@ -30,39 +30,17 @@ public class ViewPurchasesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_purchases);
         viewHolder = new ViewHolder();
 
-        List<HashMap<String,String>> items = new ArrayList<HashMap<String,String>>();
-
-        HashMap<String,String> purchases = new HashMap<>();
-        purchases.put("NAME","abc");
-        items.add(purchases);
-
-        purchases = new HashMap<>();
-        purchases.put("NAME","def");
-        items.add(purchases);
-
-        //Log.d("TAGGG", items.toString());
 
 
-        /*
-        SimpleAdapter adapter = new SimpleAdapter(this,items,
+
+
+        List<Purchase> allPurchases = getAllPurchases();
+        ArrayAdapter<Purchase> adapter = new PurchasesListAdapter(this,
                 R.layout.item_of_purchases_list,
-                new String[] {"NAME"},
-                new int[] {R.id.purchaseName});
-        */
+                allPurchases);
 
-        List<HashMap<String,Object>> allPurchases = getAllPurchases();
 
-        /*
-        SimpleAdapter adapter = new SimpleAdapter(this,items,
-                R.layout.item_of_purchases_list,
-                new String[] {Purchases.tables._ID, Purchases.tables.PRODUCT, Purchases.tables.AMOUNT, Purchases.tables.PRICE},
-                new int[] {R.id.purchase_id,R.id.purchase_name,R.id.purchase_amount,R.id.purchase_price});
-        */
 
-        SimpleAdapter adapter = new SimpleAdapter(this,allPurchases,
-                R.layout.item_of_purchases_list,
-                new String[] {Purchases.tables._ID, Purchases.tables.PRODUCT, Purchases.tables.AMOUNT, Purchases.tables.PRICE},
-                new int[] {R.id.purchase_id,R.id.purchase_name,R.id.purchase_amount,R.id.purchase_price});
 
         viewHolder.listViewPurchases.setAdapter(adapter);
 
@@ -76,31 +54,28 @@ public class ViewPurchasesActivity extends AppCompatActivity {
     }
 
 
-    public List<HashMap<String,Object>> getAllPurchases() {
+    public List<Purchase> getAllPurchases() {
         String SQL_getAllPurchases = "SELECT * FROM " + Purchases.tables.TABLE_NAME_PURCHASES;
         //SQLiteDatabase db = new CC_DatabaseHelper(getApplicationContext()).getReadableDatabase();
         SQLiteDatabase db = App.getReadableDB();
         Cursor cursor = db.query(Purchases.tables.TABLE_NAME_PURCHASES,null,null,null,null,null,null);
-
-
-        List<HashMap<String,Object>> purchases = new ArrayList<HashMap<String, Object>>();
         cursor.moveToFirst();
-        HashMap<String,Object> map = new HashMap<String,Object>();
+
+        List<Purchase> purchases = new ArrayList<Purchase>();
+        Purchase purchase;
+
         for(int recNum = 0; recNum< cursor.getCount(); recNum++) {
-                for(int columnNum = 0; columnNum< cursor.getColumnCount(); columnNum++)
-                    if(columnNum == 0)
-                        map.put(Purchases.tables._ID,cursor.getInt(columnNum));
-                    else if(columnNum == 1)
-                        map.put(Purchases.tables.PRODUCT,cursor.getString(columnNum));
-                    else if(columnNum == 2)
-                        map.put(Purchases.tables.AMOUNT,cursor.getInt(columnNum));
-                    else if(columnNum == 3)
-                        map.put(Purchases.tables.PRICE,cursor.getFloat(columnNum));
-                purchases.add(map);
-                map = new HashMap<String,Object>();
+                purchase = new Purchase();
+                purchase.setId(cursor.getInt(0));
+                purchase.setName(cursor.getString(1));
+                purchase.setAmount(cursor.getInt(2));
+                purchase.setPrice(cursor.getFloat(3));
+
+                purchases.add(purchase);
                 cursor.moveToNext();
         }
 
+        cursor.close();
         return purchases;
 
 
