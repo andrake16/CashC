@@ -24,6 +24,7 @@ public class PurchasesListAdapter extends ArrayAdapter<Purchase> {
     public PurchasesListAdapter(Context context, int resource, List<Purchase> objects) {
         super(context, resource, objects);
         ctx = context;
+        purchases = objects;
     }
 
     @NonNull
@@ -34,9 +35,17 @@ public class PurchasesListAdapter extends ArrayAdapter<Purchase> {
         if(convertView == null)
             convertView = LayoutInflater.from(ctx).inflate(R.layout.item_of_purchases_list,null);
 
-        EditText et = (EditText) convertView.findViewById(R.id.purchase_id);
+        EditText purchaseIDWidget = (EditText) convertView.findViewById(R.id.purchase_id);
+        EditText purchaseNameWidget = (EditText) convertView.findViewById(R.id.purchase_name);
+        EditText purchaseAmountWidget = (EditText) convertView.findViewById(R.id.purchase_amount);
+        EditText purchasePriceWidget = (EditText) convertView.findViewById(R.id.purchase_price);
 
-        et.setText(purchases.get(position).getId());
+
+        purchaseIDWidget.setText( String.valueOf( purchases.get(position).getId() ) );
+        purchaseNameWidget.setText( String.valueOf( purchases.get(position).getName() ) );
+        purchaseAmountWidget.setText( String.valueOf( purchases.get(position).getAmount() ) );
+        purchasePriceWidget.setText( String.valueOf( purchases.get(position).getPrice() ) );
+
 
         return convertView;
     }
