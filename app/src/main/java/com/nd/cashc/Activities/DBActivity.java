@@ -1,11 +1,12 @@
-package com.nd.cashc;
+package com.nd.cashc.Activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.nd.cashc.R;
 
 public class DBActivity extends AppCompatActivity {
 

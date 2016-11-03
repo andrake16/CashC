@@ -1,23 +1,19 @@
-package com.nd.cashc;
+package com.nd.cashc.Activities;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-import com.nd.cashc.DataBase.CC_DatabaseHelper;
+import com.nd.cashc.App;
 import com.nd.cashc.DataBase.DBEntities.Purchases;
 import com.nd.cashc.DataBase.Entities.Purchase;
+import com.nd.cashc.PurchasesListAdapter;
+import com.nd.cashc.R;
 
-import java.sql.Types;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ViewPurchasesActivity extends AppCompatActivity {

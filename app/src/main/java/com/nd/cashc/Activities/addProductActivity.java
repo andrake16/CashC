@@ -1,4 +1,4 @@
-package com.nd.cashc;
+package com.nd.cashc.Activities;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,11 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.nd.cashc.DataBase.CC_DatabaseHelper;
 import com.nd.cashc.DataBase.DBEntities.Purchases;
+import com.nd.cashc.R;
 
 
 public class addProductActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class addProductActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
         viewHolder = new ViewHolder();

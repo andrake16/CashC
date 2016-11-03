@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/AppSettings"
+        android:title="@string/appSettings"
+        android:orderInCategory="0"
+        android:showAsAction="never"
+        android:icon="@mipmap/ic_launcher"
+
+       />
+
+    <item
+        android:id="@+id/AppSettings2"
+        android:title="lglkjhlkjh"
+        android:orderInCategory="0"
+        android:showAsAction="never"
+        android:icon="@mipmap/ic_launcher"
+        />
+
+</menu>
