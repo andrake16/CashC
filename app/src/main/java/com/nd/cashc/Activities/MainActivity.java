@@ -1,8 +1,9 @@
 package com.nd.cashc.Activities;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.Button;
 
 import com.nd.cashc.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +22,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(databaseBtn != null)
             databaseBtn.setOnClickListener(this);
 
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Main Screen");
-        ab.setDisplayHomeAsUpEnabled(true);
-        ab.setLogo(R.mipmap.main_screen_icn);
-        ab.setDisplayShowHomeEnabled(true);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //ActionBar ab = getSupportActionBar();
+        ActionBar ab = getActionBar();
+
+        if (ab != null) {
+            //ab.setDisplayHomeAsUpEnabled(true);
+            //ab.setLogo(R.mipmap.main_screen_icn);
+            //ab.setDisplayShowHomeEnabled(true);
+            //ab.setDisplayUseLogoEnabled(true);
+            ab.setTitle(R.string.mainScreenTitle);
+            //int options = ActionBar.DISPLAY_HOME_AS_UP|ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_USE_LOGO;
+            //int options = ActionBar.DISPLAY_HOME_AS_UP;
+            //ab.setDisplayOptions(options,options);
+            ab.setIcon(R.mipmap.ic_launcher);
+
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
+
+
+
+
 
 
 

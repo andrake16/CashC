@@ -13,10 +13,12 @@
 
     <!-- MENU -->
     <string name="appSettings">App Settings</string>
-
+    <string name="logoutMain">logout</string>
+    <string name="mainScreenTitle">Main Screen</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_product">add Product</string>
+
 
 </resources>
