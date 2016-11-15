@@ -20,7 +20,7 @@ public class DBActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db);
         viewHolder = new ViewHolder();
-
+/*
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setTitle("Database Screen");
@@ -29,7 +29,7 @@ public class DBActivity extends AppCompatActivity {
             ab.setDisplayUseLogoEnabled(true);
             ab.setLogo(R.mipmap.ic_launcher);
             //ab.setHomeAsUpIndicator(R.mipmap.main_screen_icn);
-        }
+        }*/
 
         viewHolder.btnAddRecord.setOnClickListener(new View.OnClickListener() {
             @Override

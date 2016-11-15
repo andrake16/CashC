@@ -1,19 +1,35 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <!--item name="homeAsUpIndicator">@drawable/edit_text_drawable</item-->
-        <item name="homeAsUpIndicator">@android:the </item>
+        <item name="actionBarStyle">@style/myActionBarStyle</item>
+        <item name="android:actionBarStyle">@style/myActionBarStyle</item>
+    </style>
 
 
+
+
+    <!-- Action bar styles -->
+    <style name="myActionBarStyle" parent="@android:style/Widget.ActionBar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="displayOptions">showCustom</item>
+        <item name="background">@android:color/holo_green_dark</item>
+        <item name="customNavigationLayout">@layout/custom_action_bar</item>
 
 
     </style>
+
+
+
+
+
+
+
 
 
 
