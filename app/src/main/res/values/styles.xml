@@ -21,7 +21,6 @@
         <item name="background">@android:color/holo_green_dark</item>
         <item name="customNavigationLayout">@layout/custom_action_bar</item>
 
-
     </style>
 
 
