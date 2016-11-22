@@ -56,13 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    protected void onStart() {
 
-        super.onStart();
-
-
-    }
 
     public void ViewHolder(){
 
@@ -82,12 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.home)
-            Toast.makeText(this,"selected Back Home",Toast.LENGTH_LONG);
-        return super.onOptionsItemSelected(item);
-    }
+
 
 
 

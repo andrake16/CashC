@@ -35,6 +35,9 @@ public class PurchasesListAdapter extends ArrayAdapter<Purchase> {
         if(convertView == null)
             convertView = LayoutInflater.from(ctx).inflate(R.layout.item_of_purchases_list,null);
 
+        //LayoutInflater li = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //li.inflate(R.layout.item_of_purchases_list,null);
+
         EditText purchaseIDWidget = (EditText) convertView.findViewById(R.id.purchase_id);
         EditText purchaseNameWidget = (EditText) convertView.findViewById(R.id.purchase_name);
         EditText purchaseAmountWidget = (EditText) convertView.findViewById(R.id.purchase_amount);
