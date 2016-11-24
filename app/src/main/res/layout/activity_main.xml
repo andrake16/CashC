@@ -23,4 +23,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/DB_btn" />
+
+    <Button
+        android:text="view Shops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/DB_btn"
+
+        android:id="@+id/view_shops" />
 </RelativeLayout>

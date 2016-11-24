@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.nd.cashc.App;
 import com.nd.cashc.DataBase.DBEntities.Purchases;
-import com.nd.cashc.DataBase.Entities.Purchase;
+import com.nd.cashc.Entities.Purchase;
 import com.nd.cashc.PurchasesListAdapter;
 import com.nd.cashc.R;
 

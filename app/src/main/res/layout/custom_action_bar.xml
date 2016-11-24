@@ -15,16 +15,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="-8dp"
-        android:layout_marginRight="-12dp"/>
+        android:layout_marginRight="-12dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
 
     <ImageView android:id="@id/home"
         android:src="@mipmap/ic_confirm_grey"
+        android:layout_gravity="left|center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:layout_gravity="left"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:layout_marginRight="0dp"
@@ -33,11 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Title"
-        android:textColor="#ffffff"
+        android:text="Title of Action Bar"
         android:id="@+id/mytext"
-        android:textSize="18dp" />
-
+        android:textSize="18sp" />
 
 
 </LinearLayout>

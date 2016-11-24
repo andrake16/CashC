@@ -1,4 +1,4 @@
-package com.nd.cashc.DataBase.Entities;
+package com.nd.cashc.Entities;
 
 /**
  * Created by ND on 10/20/2016.

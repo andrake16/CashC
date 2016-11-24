@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.nd.cashc.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +26,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button databaseBtn = (Button) findViewById(R.id.DB_btn);
         if(databaseBtn != null)
-            databaseBtn.setOnClickListener(this);
+            databaseBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(),DBActivity.class);
+                        startActivity(intent);
+                }
+            });
 
-        getSupportActionBar().getCustomView().findViewById(R.id.up).setOnClickListener(new View.OnClickListener() {
+        Button viewShops = (Button) findViewById(R.id.view_shops);
+        if(viewShops != null)
+            viewShops.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(),ShopsActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+
+
+
+        View actionBar = getSupportActionBar().getCustomView();
+        actionBar.findViewById(R.id.up).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "selected UP", Toast.LENGTH_SHORT).show();
             }
         });
 
-        getSupportActionBar().getCustomView().findViewById(R.id.home).setOnClickListener(new View.OnClickListener() {
+        actionBar.findViewById(R.id.home).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "selected HOME", Toast.LENGTH_SHORT).show();
             }
         });
 
-        getSupportActionBar().getCustomView().findViewById(R.id.mytext).setOnClickListener(new View.OnClickListener() {
+        actionBar.findViewById(R.id.mytext).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "selected Title", Toast.LENGTH_SHORT).show();
@@ -60,13 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void ViewHolder(){
 
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(this,DBActivity.class);
-        startActivity(intent);
 
     }
 

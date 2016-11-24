@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
-import com.nd.cashc.DataBase.Entities.Purchase;
+import com.nd.cashc.Entities.Purchase;
 
 import java.util.List;
 
