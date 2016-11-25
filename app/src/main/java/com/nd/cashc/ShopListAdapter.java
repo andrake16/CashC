@@ -1,12 +1,16 @@
 package com.nd.cashc;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nd.cashc.Entities.Shop;
 
@@ -26,6 +30,7 @@ public class ShopListAdapter extends BaseAdapter {
     public ShopListAdapter(Context ctx, List<Shop> shopList) {
         this.ctx = ctx;
         this.shopList = shopList;
+
     }
 
     @Override
@@ -45,15 +50,27 @@ public class ShopListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Log.d("GETVIEW:", "Getview is Called" );
         if(convertView==null)
             convertView = LayoutInflater.from(ctx).inflate(R.layout.item_of_shops_list,null);
         TextView nameTV = (TextView) convertView.findViewById(R.id.name);
         TextView locationTV = (TextView) convertView.findViewById(R.id.location);
         RatingBar ratingBar = (RatingBar) convertView.findViewById(R.id.ratingBar);
+        ImageView delBtn = (ImageView) convertView.findViewById(R.id.delImageView);
 
-        nameTV.setText(shopList.get(position).getName());
-        locationTV.setText(shopList.get(position).getLocation());
-        ratingBar.setRating(shopList.get(position).getRating());
+        final Shop shop = shopList.get(position);
+        nameTV.setText(shop.getName());
+        locationTV.setText(shop.getLocation());
+        ratingBar.setRating(shop.getRating());
+
+
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ctx,"rating is " + shop.getRating(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         return convertView;
     }
