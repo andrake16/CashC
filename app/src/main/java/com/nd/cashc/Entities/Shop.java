@@ -14,6 +14,10 @@ public class Shop {
     private Integer rating;
     private String comment;
 
+    public Shop() {
+
+    }
+
     public Shop(String name, String location, Integer rating, String comment) {
         this.id = UUID.randomUUID();
         this.name = name;
